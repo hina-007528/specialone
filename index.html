@@ -1,0 +1,139 @@
+<!doctype html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Suleiman ❤️</title>
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Open this, Jan. It's for you ❤️">
+<meta property="og:description" content="Happy Birthday, my better half. Best experienced on your mobile phone with sound on.">
+<meta property="og:image" content="images/portrait.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="lock">
+
+<!-- Audio Elements -->
+<audio id="bg-audio" preload="auto" loop></audio>
+<audio id="voice-audio" preload="auto"></audio>
+
+<!-- Secret Heart -->
+<div id="secret-heart" class="hidden-heart">❤️</div>
+<div id="secret-modal" class="modal center">
+  <h2>Jan jan jan, I love you ❤️</h2>
+  <p>You found my secret!</p>
+  <button id="close-secret">Close</button>
+</div>
+
+<canvas id="cf"></canvas>
+<div id="open"><canvas id="stars"></canvas>
+ <div class="lines">
+  <p>Best on your phone, with sound on 🎧</p>
+  <p style="margin-top:20vh">Hey, Jan...</p>
+  <p>I made something for you, Zindagi.</p>
+  <p>Something I hope you'll remember.</p>
+  <button id="begin">Tap to begin ❤️</button>
+ </div>
+</div>
+<div id="cnt"></div><div id="prog"><i></i></div>
+
+<!-- Floating Music Player -->
+<div id="music-player" class="music-player hidden">
+  <div class="vinyl">
+    <div class="vinyl-center"></div>
+  </div>
+  <div class="track-info">
+    <div class="title" id="song-title">Song Title</div>
+    <div class="artist" id="song-artist">Artist</div>
+    <div class="waveform">
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+  <button id="music-toggle">⏸</button>
+</div>
+
+<!-- Floating Custom Hint -->
+<div id="secret-hint" class="secret-hint">There's a secret hidden somewhere... can you find it?</div>
+
+<main>
+ <!-- Opening -> Intro -> Person -> Our moments -> Real couple photos -> Our song (new section) -> Things I love -> 24 reasons (new section) -> Love letter -> Voice message (new section) -> Gift -> Cake -> Promises (new section) -> Emotional climax -> Final celebration -->
+ 
+ <section class="seq" id="intro"></section>
+ <section id="person"></section>
+ <section id="moments">
+   <div class="center" style="min-height:70svh">
+     <h2 style="font-size:clamp(34px,9vw,64px);font-style:italic">Our moments</h2>
+     <p style="opacity:.6;margin-top:12px;font-size:14px;letter-spacing:.2em">SCROLL SLOWLY ↓</p>
+   </div>
+ </section>
+ <section id="real"></section>
+ 
+ <!-- Our Song Section -->
+ <section class="scene center cream" id="song-section">
+   <h2 style="font-size:clamp(28px,7vw,44px);font-style:italic;margin-bottom:10px" id="song-quote"></h2>
+   <p class="sub">Our Song 🎧</p>
+   <button id="play-song-btn">Play Our Song</button>
+ </section>
+
+ <section class="cream" id="loves">
+   <h2>Things I love about you</h2>
+   <p class="sub">Tap each one</p>
+   <div class="grid"></div>
+ </section>
+ 
+ <!-- 24 Reasons -->
+ <section class="scene center" id="reasons-section" style="background:var(--ink);min-height:90svh">
+   <h2 style="font-size:clamp(30px,8vw,48px);font-style:italic">24 Reasons I Love You</h2>
+   <p class="sub" style="color:var(--gold);margin-top:10px;margin-bottom:30px">Tap to reveal</p>
+   <div class="reason-card" id="reason-card">
+    <small id="reason-counter">Reason 1 of 24</small>
+    <p id="reason-text">Tap to start...</p>
+   </div>
+ </section>
+
+ <section class="cream" id="letter" style="padding-bottom:20px">
+   <h2>I wrote something for you...</h2>
+   <p class="sub">Tap the envelope</p>
+   <div class="env"><div class="fl"></div><div class="sl"></div></div>
+   <div id="paper"></div>
+ </section>
+
+ <!-- Voice Message -->
+ <section class="scene center" id="voice-section" style="background:var(--navy);min-height:80svh;">
+  <h2 style="font-size:clamp(30px,8vw,48px);font-style:italic" id="voice-title">A little message from me.</h2>
+  <div class="voice-player" id="voice-player">
+    <button id="voice-btn">▶</button>
+    <div class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="voice-time">0:00</div>
+  </div>
+  <p id="voice-subs" class="subtitles"></p>
+ </section>
+
+ <section class="scene center" id="gift" style="background:linear-gradient(to bottom, var(--navy), var(--royal))">
+  <h2 style="font-size:clamp(28px,7vw,44px);font-style:italic">There's still one more surprise...</h2>
+  <div class="box"><div class="bx"></div><div class="lid"></div><div class="glow"></div></div>
+  <button id="open-gift">Open it 🎁</button>
+  <p id="gmsg"></p>
+ </section>
+
+ <section class="scene center" id="cakes" style="background:linear-gradient(var(--royal),#0d1b45)">
+  <h2 style="font-size:clamp(30px,8vw,52px);font-style:italic">Make a wish...</h2>
+  <div class="cake" id="cake"><div class="t2"></div><div class="t1"></div></div>
+  <button id="blow">Blow the candles</button>
+  <p id="wish" style="opacity:0;margin-top:22px;font-family:var(--serif);font-size:26px;font-style:italic"></p>
+ </section>
+
+ <!-- Promises -->
+ <section class="scene center cream" id="promises-section" style="min-height:100svh; justify-content: flex-start; padding-top: 80px;">
+  <h2 style="font-size:clamp(32px,8vw,50px);font-style:italic;margin-bottom:40px">My Promises to You</h2>
+  <div class="promises-container"></div>
+ </section>
+
+ <section class="seq" id="climax"></section>
+ <section class="scene center" id="fin"></section>
+</main>
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body></html>
